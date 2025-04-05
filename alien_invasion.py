@@ -23,7 +23,7 @@ class AlienInvasion:
     
     def run_game(self):
         # Game loop
-        while True:
+        while self.running:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     self.running = False
@@ -36,3 +36,4 @@ class AlienInvasion:
 if __name__ == '__main__':
     ai = AlienInvasion()
     ai.run_game()
+    
