@@ -15,7 +15,7 @@ class Ship:
         self.screen = game.screen
         self.boundaries = game.screen.get_rect()
 
-        self.image = pygame.image.load('ship2(no bg).png')
+        self.image = pygame.image.load('onlyrocket.png')
         self.image = pygame.transform.scale(self.image, 
             (self.settings.ship_w, self.settings.ship_h)
             )

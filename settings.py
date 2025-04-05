@@ -9,9 +9,12 @@ class Settings:
         self.FPS = 60
         self.bg_file = Path.cwd() / 'Assets' / 'images' / 'Starbasesnow.png'
 
-        self.ship_file = Path.cwd() / 'Assets' / 'images' / 'ship2(no bg).png'
-        self.ship_w = 40
-        self.ship_h = 60
+        # Image courtesy of jagdos of OpenGameArt.org. Original name is simply "Rocket", and this
+        # is a public domain image.
+
+        self.ship_file = Path.cwd() / 'Assets' / 'images' / 'onlyrocket.png'
+        self.ship_w = 60
+        self.ship_h = 150
         self.ship_speed = 5
 
         self.bullet_file = Path.cwd() / 'Assets' / 'images' / 'laserBlast.png'
