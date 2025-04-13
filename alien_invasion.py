@@ -61,6 +61,11 @@ class AlienInvasion:
         if collisions:
             self.impact.play()
             self.impact.fadeout(500)
+        
+        if self.alien_fleet.check_destroyed_status():
+            self._reset_level()
+
+
 
     def _reset_level(self):
         self.ship.arsenal.arsenal.empty()
