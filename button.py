@@ -3,7 +3,7 @@ import pygame.font
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from alien_fleet import AlienInvasion
+    from alien_invasion import AlienInvasion
 
 class Button:
 
@@ -12,7 +12,7 @@ class Button:
         self.screen = game.screen
         self.boundaries = game.screen.get_rect()
         self.settings = game.settings
-        self.font = pygame.font.Font(self.settings.font_file, 
+        self.font = pygame.font.Font(self.settings.font_file,
             self.settings.button_font_size)
         self.rect = pygame.Rect(0,0,self.settings.button_w, self.settings.button_h)
         self.rect.center = self.boundaries.center
