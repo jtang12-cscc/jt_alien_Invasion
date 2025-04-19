@@ -9,6 +9,7 @@ class Settings:
         self.FPS = 60
         self.bg_file = Path.cwd() / 'Assets' / 'images' / 'Starbasesnow.png'
         self.difficulty_scale = 1.1
+        self.scores_file = Path.cwd() / 'Assets' / 'file' / 'scores.json'
 
         # Image courtesy of jagdos of OpenGameArt.org. Original name is simply "Rocket", and this
         # is a public domain image.
