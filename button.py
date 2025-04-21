@@ -8,6 +8,11 @@ if TYPE_CHECKING:
 class Button:
 
     def __init__(self, game: 'AlienInvasion', msg):
+        """
+
+        This function handles the play button to activate the game when it's pressed.
+
+        """
         self.game = game
         self.screen = game.screen
         self.boundaries = game.screen.get_rect()

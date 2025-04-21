@@ -5,7 +5,12 @@ import pygame.font
 # if TYPE_CHECKING:
 
 class HUD:
+    """
 
+     onlyrocket.png is the rocket sprite:
+        Link: https://opengameart.org/content/rocket-0
+
+    """
     def __init__(self, game):
         self.game = game
         self.settings = game.settings
@@ -34,6 +39,11 @@ class HUD:
         self._update_hi_score()
     
     def _update_score(self):
+        """
+
+        This function updates the score in the game code every time a ship is destroyed.
+
+        """
         score_str = f'Score: {self.game_stats.score: ,.0f}'
         self.score_image = self.font.render(score_str, True,
             self.settings.text_color, None)

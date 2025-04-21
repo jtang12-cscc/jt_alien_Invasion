@@ -13,6 +13,20 @@ from hud import HUD
 class AlienInvasion:
 
     def __init__(self):
+        """
+        
+        This function deals with setting up the basics of the entire "alien_invasion" code; namely the sprites and background.
+
+        bg5.jpg is the background choice:
+            Link: https://opengameart.org/content/space-background
+
+        521492__typeoo__air_blast_big_1_5s.wav is the laser sound effect:
+            Link: https://freesound.org/people/typeoo/sounds/521492/
+
+        478277__joao_janz__8-bit-explosion-1_6.wav is the impact sound effect:
+            Link: https://freesound.org/people/Joao_Janz/sounds/478277/
+
+        """
         pygame.init()
         self.settings = Settings()
         self.settings.initialize_dynamic_settings()
@@ -22,7 +36,7 @@ class AlienInvasion:
             )
         pygame.display.set_caption(self.settings.name)
 
-        self.bg = pygame.image.load('Starbasesnow.png')
+        self.bg = pygame.image.load('bg5.jpg')
         self.bg = pygame.transform.scale(self.bg, 
             (self.settings.screen_w, self.settings.screen_h)
             )
@@ -33,10 +47,10 @@ class AlienInvasion:
         self.clock = pygame.time.Clock()
 
         pygame.mixer.init()
-        self.laser_sound = pygame.mixer.Sound('laser.mp3')
+        self.laser_sound = pygame.mixer.Sound('521492__typeoo__air_blast_big_1_5s.wav')
         self.laser_sound.set_volume(0.7)
 
-        self.impact = pygame.mixer.Sound('impactSound.mp3')
+        self.impact = pygame.mixer.Sound('478277__joao_janz__8-bit-explosion-1_6.wav')
         self.impact.set_volume(0.7)
 
 
@@ -48,6 +62,11 @@ class AlienInvasion:
         self.game_active = False
     
     def run_game(self):
+        """
+        
+        This function causes various aspects of the code to change for every round completed.
+
+        """
         # Game loop
         while self.running:
             self._check_events()
@@ -85,7 +104,12 @@ class AlienInvasion:
 
 
     def _check_game_status(self):
+        
+        """
 
+        This function makes sure that when the ship count reaches zero, the game is over.
+
+        """
         if self.game_stats.ships_left > 0:
             self.game_stats.ships_left -= 1
             self._reset_level()
@@ -143,6 +167,14 @@ class AlienInvasion:
             self.restart_game()
 
     def _check_keyup_events(self, event):
+        """
+
+        This function makes the ship move left to right per the right or left button being pressed.
+
+        Args:
+            self.ship.moving_right: Moves the ship right.
+            self.ship.moving_left: Moves the ship left.
+        """
         if event.key == pygame.K_RIGHT:
             self.ship.moving_right = False
         elif event.key == pygame.K_LEFT:
@@ -150,6 +182,14 @@ class AlienInvasion:
         
 
     def _check_keydown_events(self, event):
+        """
+        
+        This function ensures that the ship moves in accordance to the keydown, and that the ship fires lasers when the space bar is pressed.
+
+        Args:
+            self.ship.fire(): Makes sure that when a laser is fired, the appropriate sound is played as well.
+            
+        """
         if event.key == pygame.K_RIGHT:
             self.ship.moving_right = True
         elif event.key == pygame.K_LEFT:

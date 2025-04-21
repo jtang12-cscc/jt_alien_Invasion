@@ -26,6 +26,13 @@ class GameStats():
             # save the file
 
     def save_scores(self):
+
+        """
+
+        This function makes sure that the high score in the game is running properly.
+
+        """
+
         scores = {
             'hi_score': self.hi_score
         }

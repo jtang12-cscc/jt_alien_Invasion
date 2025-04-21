@@ -6,6 +6,12 @@ if TYPE_CHECKING:
     from alien_fleet import AlienFleet
 
 class Alien(Sprite):
+    """
+
+    alien2.png is the alien sprite:
+        Link: https://opengameart.org/content/alien-ship
+
+    """
     def __init__(self, fleet: 'AlienFleet', x: float, y: float):
         super().__init__()
         self.fleet = fleet
@@ -13,7 +19,7 @@ class Alien(Sprite):
         self.boundaries = fleet.game.screen.get_rect()
         self.settings = fleet.game.settings
 
-        self.image = pygame.image.load('enemy_4.png')
+        self.image = pygame.image.load('alien2.png')
         self.image = pygame.transform.scale(self.image, 
             (self.settings.alien_w, self.settings.alien_h)
             )

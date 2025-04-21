@@ -16,6 +16,11 @@ class Arsenal:
         self._remove_bullets_offscreen()
     
     def _remove_bullets_offscreen(self):
+        """
+
+        This function ensures that should a bullet fly offscreen, it'll vanish.
+
+        """
         for bullet in self.arsenal.copy():
             if bullet.rect.bottom <= 0:
                 self.arsenal.remove(bullet)
@@ -25,6 +30,11 @@ class Arsenal:
             bullet.draw_bullet()
 
     def fire_bullet(self):
+        """
+
+        This function ensures that if a bullet flies offscreen, it'll be added to the ship's arsenal.
+
+        """
         if len(self.arsenal) < self.settings.bullet_amount:
             new_bullet = Bullet(self.game)
             self.arsenal.add(new_bullet)

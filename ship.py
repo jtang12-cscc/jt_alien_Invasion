@@ -5,12 +5,15 @@ if TYPE_CHECKING:
     from alien_invasion import AlienInvasion
     from arsenal import Arsenal
 
-
-
 class Ship:
 
-
     def __init__(self, game: 'AlienInvasion', arsenal: 'Arsenal'):
+        """
+
+        onlyrocket.png is the rocket sprite:
+            Link: https://opengameart.org/content/rocket-0
+
+        """
         self.game = game
         self.settings = game.settings
         self.screen = game.screen
@@ -37,6 +40,11 @@ class Ship:
         self.arsenal.update_arsenal()
 
     def _update_ship_movement(self):
+        """
+
+        This function makes sure that the ship moves properly when moving left or right.
+
+        """
         temp_speed = self.settings.ship_speed
         if self.moving_right and self.rect.right < self.boundaries.right:
             self.x += temp_speed

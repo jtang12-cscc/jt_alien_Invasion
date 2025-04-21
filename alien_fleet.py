@@ -17,6 +17,11 @@ class AlienFleet:
         self.create_fleet()
 
     def create_fleet(self):
+        """
+
+        This function sets up the appropriate height and width for the alien fleet.
+
+        """
         alien_w = self.settings.alien_w
         alien_h = self.settings.alien_h
         screen_w = self.settings.screen_w
@@ -30,6 +35,12 @@ class AlienFleet:
     # New Fleet Shape starts here
 
     def _create_new_shape_fleet(self, alien_w, alien_h, fleet_w, fleet_h, x_offset, y_offset):
+
+        """
+
+        This function makes sure that the shape of the fleet goes back to the previous one once the latter has no more ships left.
+
+        """
 
         shape_x = fleet_w / 2
         shape_y = fleet_h / 2
@@ -45,6 +56,20 @@ class AlienFleet:
                 self._create_alien(current_x, current_y)
 
     def calculate_offsets(self, alien_w, alien_h, screen_w, fleet_w, fleet_h):
+        """
+
+        This function determines the offsets for the alien fleet.
+
+        Args:
+            alien_w (int): Determines the alien's width
+            alien_h (int): Determines the alien's height
+            screen_w (int): Determines the screen width
+            fleet_w (int): Determines the fleet's width
+            fleet_h (int): Determines the fleet's height
+
+        Returns:
+            int: This variable is used to print out the results of the offsets.
+        """
         half_screen = self.settings.screen_h//2
         fleet_horizontal_space = fleet_w * alien_w
         fleet_vertical_space = fleet_h * alien_h
@@ -54,6 +79,16 @@ class AlienFleet:
 
 
     def calculate_fleet_size(self, alien_w, screen_w, alien_h, screen_h):
+        """
+
+        This function calculates the fleet's overall size.
+
+        Args:
+            screen_h (int): Determines the screen height.
+
+        Returns:
+            int: This variable is used to print out the results of the fleet size.
+        """
         fleet_w = ((screen_w)//alien_w)
         fleet_h = ((screen_h/2)//alien_h)
         
